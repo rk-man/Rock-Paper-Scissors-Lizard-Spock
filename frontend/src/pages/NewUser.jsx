@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { useSelector } from "react-redux";
@@ -49,6 +49,7 @@ function NewUser() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <h1 className="text-center">Sign in Here</h1>
             <div className="flex flex-col items-center justify-center gap-2 h-80">
                 <label htmlFor="username">Enter Your Username</label>
                 <input
@@ -64,6 +65,15 @@ function NewUser() {
                 >
                     Start
                 </button>
+
+                <p>
+                    Exisiting user ?{" "}
+                    <Link to="/login">
+                        <span className="text-green-300 font-bold">
+                            Login Here....
+                        </span>
+                    </Link>
+                </p>
             </div>
         </form>
     );

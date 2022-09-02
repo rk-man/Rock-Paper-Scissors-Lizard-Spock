@@ -49,6 +49,7 @@ function Login() {
     };
     return (
         <form onSubmit={handleSubmit}>
+            <h1 className="text-center mb-14">Login Here</h1>
             <div className="flex flex-col items-center justify-center gap-2 h-200">
                 <label htmlFor="username">Enter Your Username</label>
                 <input
