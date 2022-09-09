@@ -8,11 +8,12 @@ import {
     FaHandSpock,
 } from "react-icons/fa";
 
-import DisplayResult from "../components/DisplayResult";
+// import DisplayResult from "../components/DisplayResult";
 
 import Spinner from "../utils/Spinner";
 
 import { useSelector } from "react-redux";
+import Modal from "../modals/Modal";
 
 function Home() {
     const { user } = useSelector((state) => {
@@ -127,7 +128,7 @@ function Home() {
     };
 
     const checkUpdateScores = () => {
-        if (scores.userScore >= 10) {
+        if (scores.userScore >= 5) {
             setFinalWinner({
                 winner: user.username,
                 loser: "computer",
@@ -135,19 +136,13 @@ function Home() {
                 compScore: scores.compScore,
                 isFinalWinner: true,
             });
-            document.querySelectorAll(".option").forEach((option) => {
-                option.classList.add("pointer-events-none");
-            });
-        } else if (scores.compScore >= 10) {
+        } else if (scores.compScore >= 5) {
             setFinalWinner({
                 loser: user.username,
                 winner: "computer",
                 userScore: scores.userScore,
                 compScore: scores.compScore,
                 isFinalWinner: true,
-            });
-            document.querySelectorAll(".option").forEach((option) => {
-                option.classList.add("pointer-events-none");
             });
         }
     };
@@ -170,9 +165,6 @@ function Home() {
         setCompMove("");
         setWinner("");
         setLoading(false);
-        document.querySelectorAll(".option").forEach((option) => {
-            option.classList.remove("pointer-events-none");
-        });
     };
 
     useEffect(() => {
@@ -294,9 +286,9 @@ function Home() {
                 ""
             )}
             {finalWinner.isFinalWinner && (
-                <DisplayResult
-                    finalWinner={finalWinner}
+                <Modal
                     resetAllData={resetAllData}
+                    finalWinner={finalWinner}
                     user={user}
                 />
             )}

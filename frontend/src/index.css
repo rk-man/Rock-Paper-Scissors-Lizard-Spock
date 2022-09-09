@@ -117,16 +117,23 @@ input {
 }
 
 .display-result {
-    width: 40rem;
-    height: 30rem;
-    position: fixed;
-    z-index: 5000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(229, 255, 0);
-    opacity: 1;
     color: rgb(99, 102, 241);
+    background-color: yellow;
+    width: 50rem;
+    height: 30rem;
+    padding: 4rem;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 @media only screen and (max-width: 28em) {
